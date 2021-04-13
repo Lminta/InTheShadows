@@ -1,0 +1,19 @@
+﻿using UnityEngine;
+using UnityEditor;
+
+namespace ITS.Core
+{
+    [CustomPropertyDrawer(typeof(EnumNamedArrayAttribute))]
+    public class DrawerEnumNamedArray : PropertyDrawer
+    {
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+            EnumNamedArrayAttribute enumNames = attribute as EnumNamedArrayAttribute;
+            int index = System.Convert.ToInt32(property.propertyPath.Substring(property.propertyPath.IndexOf("[")).Replace("[", "").Replace("]", ""));
+            if (index < enumNames.names.Length)
+            {
+                label.text = enumNames.names[index];
+            }
+            EditorGUI.PropertyField( position, property, label, true );
+        }
+    }
+}
