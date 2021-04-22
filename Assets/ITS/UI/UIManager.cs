@@ -8,7 +8,8 @@ namespace ITS.UI
     public enum UIWindowType
     {
         MainMenu,
-        LevelMenu
+        LevelMenu,
+        GameplayWindow
     }
 
     public class UIManager : MonoBehaviour
